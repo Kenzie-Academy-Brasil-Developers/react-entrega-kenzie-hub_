@@ -46,6 +46,7 @@ export const Main = styled.main`
   }
 
   form {
+    height: max-content;
     width: 80%;
     border-radius: 4px;
     padding: 42px 22px 42px 22px;
@@ -66,7 +67,7 @@ export const Main = styled.main`
 
   form > section > select {
     height: 48px;
-    width: 102%;
+    width: 100%;
     border-radius: 4px;
     padding: 0px 16px 0px 16px;
     background-color: #343b41;
@@ -76,7 +77,7 @@ export const Main = styled.main`
 
   form > section > input {
     height: 48px;
-    width: 90%;
+    width: 100%;
     border-radius: 4px;
     padding: 0px 16px 0px 16px;
     background-color: #343b41;
@@ -147,6 +148,7 @@ export const Main = styled.main`
     }
 
     form {
+      height: max-content;
       width: 369px;
       border-radius: 4px;
       padding: 42px 22px 42px 22px;
@@ -177,7 +179,7 @@ export const Main = styled.main`
 
     form > section > input {
       height: 48px;
-      width: 329.92877197265625px;
+      width: 100%;
       border-radius: 4px;
       padding: 0px 16px 0px 16px;
       background-color: #343b41;

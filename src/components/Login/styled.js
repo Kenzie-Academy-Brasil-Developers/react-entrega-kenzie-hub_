@@ -32,7 +32,7 @@ export const MainLogin = styled.main`
 
   .divForm > input {
     height: 48px;
-    width: 286px;
+    width: 100%;
     border-radius: 4px;
     padding: 0px 16px 0px 16px;
     background-color: #343b41;
@@ -83,7 +83,7 @@ export const MainLogin = styled.main`
   }
 
   form {
-    height: 518px;
+    height: max-content;
     width: 85%;
     border-radius: 4px;
     padding: 42px 22px 42px 22px;
@@ -185,7 +185,7 @@ export const MainLogin = styled.main`
     }
 
     form {
-      height: 518px;
+      height: max-content;
       width: 369px;
       border-radius: 4px;
       padding: 42px 22px 42px 22px;
