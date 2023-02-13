@@ -9,7 +9,7 @@ export const Dashboard = () => {
     <MainDashboard>
       <header>
         <h1>Kenzie hub</h1>
-        <Link className="btn" to={"/login"}>
+        <Link className="btn" to={"/"}>
           <button>Sair</button>
         </Link>
       </header>

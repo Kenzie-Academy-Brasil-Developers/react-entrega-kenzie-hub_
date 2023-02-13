@@ -33,7 +33,6 @@ export const Login = () => {
     try {
       const response = await api.post("/sessions", data);
       toast.success("Usuário logado com sucesso");
-      console.log(response.data);
       const user = JSON.stringify(response.data.user);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", user);
@@ -42,7 +41,6 @@ export const Login = () => {
       }, 5000);
     } catch (erro) {
       toast.error("Email ou senha incorretos.");
-      console.error(erro);
     }
     return response.data;
   }

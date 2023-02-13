@@ -58,7 +58,7 @@ export const Registro = () => {
     try {
       const response = await api.post("/users", newData);
       toast.success("Usuário cadastrado com sucesso");
-      navigate("/login");
+      navigate("/");
       console.log(response.data);
     } catch (erro) {
       toast.error(erro);
@@ -75,7 +75,7 @@ export const Registro = () => {
     <Main>
       <div>
         <h1>KenzieHub</h1>
-        <Link className="link" to={"/login"}>
+        <Link className="link" to={"/"}>
           <button>Voltar</button>
         </Link>
       </div>
