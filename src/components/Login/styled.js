@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const MainLogin = styled.main`
+  height: 100vh;
   width: 100%;
   background-color: #000000;
   display: flex;
@@ -107,6 +108,7 @@ export const MainLogin = styled.main`
   }
 
   @media (min-width: 768px) {
+    height: 100vh;
     width: 100%;
     background-color: #000000;
     display: flex;
