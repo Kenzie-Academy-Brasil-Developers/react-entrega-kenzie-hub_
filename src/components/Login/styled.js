@@ -31,6 +31,7 @@ export const MainLogin = styled.main`
   }
 
   .divForm > input {
+    color: white;
     height: 48px;
     width: 100%;
     border-radius: 4px;
@@ -66,7 +67,10 @@ export const MainLogin = styled.main`
     color: white;
   }
 
-  .buttons > .cadastro > button {
+  .buttons > .cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 48px;
     width: 100%;
     border-radius: 4px;
@@ -133,6 +137,7 @@ export const MainLogin = styled.main`
     }
 
     .divForm > input {
+      color: white;
       height: 48px;
       width: 329.92877197265625px;
       border-radius: 4px;
@@ -168,7 +173,10 @@ export const MainLogin = styled.main`
       color: white;
     }
 
-    .buttons > .cadastro > button {
+    .buttons > .cadastro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 48px;
       width: 100%;
       border-radius: 4px;

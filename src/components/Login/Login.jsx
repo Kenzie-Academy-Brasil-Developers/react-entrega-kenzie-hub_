@@ -29,16 +29,13 @@ export const Login = () => {
 
   const navigate = useNavigate();
   async function onSubmitFunction(data) {
-    console.log(data);
     try {
       const response = await api.post("/sessions", data);
       toast.success("Usuário logado com sucesso");
       const user = JSON.stringify(response.data.user);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", user);
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 5000);
+      navigate("/dashboard");
     } catch (erro) {
       toast.error("Email ou senha incorretos.");
     }
@@ -78,7 +75,7 @@ export const Login = () => {
           <span>Ainda não possui uma conta?</span>
 
           <Link className="cadastro" to={"/register"}>
-            <button type="button">Cadastre-se</button>
+            Cadastre-se
           </Link>
         </div>
       </form>

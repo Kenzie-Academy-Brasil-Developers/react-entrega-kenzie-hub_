@@ -29,7 +29,10 @@ export const Main = styled.main`
     color: white;
   }
 
-  div > .link > button {
+  div > .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40.10990524291992px;
     width: 100%;
     border-radius: 4px;
@@ -76,6 +79,7 @@ export const Main = styled.main`
   }
 
   form > section > input {
+    color: white;
     height: 48px;
     width: 100%;
     border-radius: 4px;
@@ -132,7 +136,10 @@ export const Main = styled.main`
       color: white;
     }
 
-    div > .link > button {
+    div > .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 40.10990524291992px;
       width: 67.48529052734375px;
       border-radius: 4px;
@@ -178,6 +185,7 @@ export const Main = styled.main`
     }
 
     form > section > input {
+      color: white;
       height: 48px;
       width: 100%;
       border-radius: 4px;

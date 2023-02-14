@@ -1,17 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MainDashboard } from "./styled";
 
 export const Dashboard = () => {
   const userr = localStorage.getItem("user");
   const userOBJ = JSON.parse(userr);
+  const navigate = useNavigate();
+
+  function handleClick() {
+    localStorage.clear();
+    navigate("/");
+  }
 
   return (
     <MainDashboard>
       <header>
         <h1>Kenzie hub</h1>
-        <Link className="btn" to={"/"}>
-          <button>Sair</button>
-        </Link>
+        <button onClick={handleClick} className="btn">
+          Sair
+        </button>
       </header>
 
       <div className="about">

@@ -15,7 +15,8 @@ export const MainDashboard = styled.main`
     align-items: center;
   }
 
-  header > .btn > button {
+  header > .btn {
+    cursor: pointer;
     height: 32px;
     width: 55px;
     border-radius: 4px;
@@ -85,7 +86,8 @@ export const MainDashboard = styled.main`
       align-items: center;
     }
 
-    header > .btn > button {
+    header > .btn {
+      cursor: pointer;
       height: 32px;
       width: 55.485294342041016px;
       border-radius: 4px;

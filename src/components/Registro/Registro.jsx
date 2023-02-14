@@ -8,7 +8,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Main } from "./styled";
 
-// .matches(/.{8, 12}/, "Deve conter entre 8 e 12 caracteres.")
 const schema = yup.object({
   name: yup.string().required("Nome obrigatório."),
   email: yup.string().required("Email obrigatório."),
@@ -33,6 +32,7 @@ const schema = yup.object({
     .required("A informação de contato é obrigatória.")
     .min(8, "Deve ter 8 caracteres."),
   course_module: yup.string(),
+  select: yup.string().required("Selecione um módulo."),
 });
 
 export const Registro = () => {
@@ -47,27 +47,20 @@ export const Registro = () => {
   });
 
   async function onSubmitFunction(data) {
-    // console.log(data);
     const newData = {
       ...data,
       course_module: select,
     };
 
-    console.log(newData);
-
     try {
       const response = await api.post("/users", newData);
       toast.success("Usuário cadastrado com sucesso");
       navigate("/");
-      console.log(response.data);
     } catch (erro) {
       toast.error(erro);
-      console.error(erro);
     }
     return response.data;
   }
-
-  console.log(select);
 
   const navigate = useNavigate();
 
@@ -76,7 +69,7 @@ export const Registro = () => {
       <div>
         <h1>KenzieHub</h1>
         <Link className="link" to={"/"}>
-          <button>Voltar</button>
+          Voltar
         </Link>
       </div>
 
@@ -140,7 +133,12 @@ export const Registro = () => {
           />
           <p>{errors.contact?.message}</p>
 
-          <select name="" onChange={(e) => setSelect(e.target.value)}>
+          <select
+            id="select"
+            name=""
+            onChange={(e) => setSelect(e.target.value)}
+            {...register("select")}
+          >
             <option value="">Selecione um módulo</option>
             <option value="Primeiro módulo (Introdução ao Frontend)">
               Primeiro módulo (Introdução ao Frontend)
@@ -155,7 +153,7 @@ export const Registro = () => {
               Quarto módulo (Backend avançado)
             </option>
           </select>
-          <p>{select === "" && "selecione um módulo"}</p>
+          <p>{errors.select?.message}</p>
         </section>
 
         <button type="submit">Cadastrar</button>
