@@ -17,4 +17,8 @@ html,body,header,ul,li,img,p,h1,h2,h3,nav,div,a, section {
     padding: 0;
     box-sizing: border-box;
 }
+
+html{
+    background-color: black;
+}
 `;

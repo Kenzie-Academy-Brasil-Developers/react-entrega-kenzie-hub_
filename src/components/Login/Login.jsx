@@ -1,10 +1,10 @@
-import { api } from "../../api/api";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MainLogin } from "./styled";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 const schema = yup.object({
   email: yup.string().required("Email obrigatório."),
@@ -27,25 +27,13 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const navigate = useNavigate();
-  async function onSubmitFunction(data) {
-    try {
-      const response = await api.post("/sessions", data);
-      toast.success("Usuário logado com sucesso");
-      const user = JSON.stringify(response.data.user);
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", user);
-      navigate("/dashboard");
-    } catch (erro) {
-      toast.error("Email ou senha incorretos.");
-    }
-    return response.data;
-  }
+  // foi aqui
+  const { onSubmitFunctionLogin } = useContext(UserContext);
 
   return (
     <MainLogin>
       <h1>Kenzie hub</h1>
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
+      <form onSubmit={handleSubmit(onSubmitFunctionLogin)}>
         <h2>Login</h2>
 
         <div className="divForm">

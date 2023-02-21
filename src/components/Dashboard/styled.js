@@ -2,8 +2,48 @@ import styled from "styled-components";
 
 export const MainDashboard = styled.main`
   background-color: black;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  /* min-height: 100vw; */
+
+  ul {
+    background-color: #212529;
+    width: 99%;
+    min-height: 100px;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  ul > li {
+    height: 49px;
+    border-radius: 4px;
+    align-items: center;
+    padding: 0 21px;
+    width: 100%;
+    display: flex;
+    background-color: #121214;
+    justify-content: space-between;
+    color: white;
+    cursor: pointer;
+  }
+
+  ul > li > p {
+    font-size: 14px;
+    color: white;
+  }
+
+  ul > li > span {
+    font-size: 12px;
+    color: #868e96;
+  }
+
+  ul > li:hover {
+    background-color: #343b41;
+  }
 
   header {
     width: 100%;
@@ -11,7 +51,6 @@ export const MainDashboard = styled.main`
     display: flex;
     justify-content: space-between;
     padding: 0 30px;
-    border-bottom: 1px solid #212529;
     align-items: center;
   }
 
@@ -53,6 +92,7 @@ export const MainDashboard = styled.main`
   }
 
   section {
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     gap: 23px;
@@ -71,19 +111,39 @@ export const MainDashboard = styled.main`
     color: white;
   }
 
+  .openModal {
+    padding: 7px 10px;
+    border-radius: 4px;
+    background-color: #212529;
+    font-size: 18px;
+    color: white;
+  }
+
   @media (min-width: 768px) {
     background-color: black;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
+    .mainUL {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
     header {
       width: 100%;
       height: 72px;
       display: flex;
       justify-content: space-between;
-      padding: 0 330px;
-      border-bottom: 1px solid #212529;
       align-items: center;
+    }
+
+    header > h2 {
+      color: white;
     }
 
     header > .btn {
@@ -123,10 +183,11 @@ export const MainDashboard = styled.main`
     }
 
     section {
+      height: 100%;
       display: flex;
       flex-direction: column;
       gap: 23px;
-      padding: 0 330px;
+      padding: 0 230px;
       width: 100%;
       padding-top: 37px;
     }
@@ -138,6 +199,14 @@ export const MainDashboard = styled.main`
 
     section > span {
       font-size: 16px;
+      color: white;
+    }
+
+    .openModal {
+      padding: 7px 10px;
+      border-radius: 4px;
+      background-color: #212529;
+      font-size: 18px;
       color: white;
     }
   }

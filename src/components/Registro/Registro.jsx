@@ -1,12 +1,11 @@
-import { api } from "../../api/api";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Main } from "./styled";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 const schema = yup.object({
   name: yup.string().required("Nome obrigatório."),
@@ -31,8 +30,7 @@ const schema = yup.object({
     .string()
     .required("A informação de contato é obrigatória.")
     .min(8, "Deve ter 8 caracteres."),
-  course_module: yup.string(),
-  select: yup.string().required("Selecione um módulo."),
+  course_module: yup.string().required("Selecione um módulo."),
 });
 
 export const Registro = () => {
@@ -46,21 +44,7 @@ export const Registro = () => {
     resolver: yupResolver(schema),
   });
 
-  async function onSubmitFunction(data) {
-    const newData = {
-      ...data,
-      course_module: select,
-    };
-
-    try {
-      const response = await api.post("/users", newData);
-      toast.success("Usuário cadastrado com sucesso");
-      navigate("/");
-    } catch (erro) {
-      toast.error(erro);
-    }
-    return response.data;
-  }
+  const { onSubmitFunctionCadastro } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -73,7 +57,7 @@ export const Registro = () => {
         </Link>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
+      <form onSubmit={handleSubmit(onSubmitFunctionCadastro)} noValidate>
         <div className="divForm">
           <h2>Crie sua conta</h2>
           <span>Rapido e grátis, vamos nessa</span>
@@ -137,7 +121,7 @@ export const Registro = () => {
             id="select"
             name=""
             onChange={(e) => setSelect(e.target.value)}
-            {...register("select")}
+            {...register("course_module")}
           >
             <option value="">Selecione um módulo</option>
             <option value="Primeiro módulo (Introdução ao Frontend)">
