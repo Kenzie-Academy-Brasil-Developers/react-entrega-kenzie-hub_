@@ -27,7 +27,6 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  // foi aqui
   const { onSubmitFunctionLogin } = useContext(UserContext);
 
   return (

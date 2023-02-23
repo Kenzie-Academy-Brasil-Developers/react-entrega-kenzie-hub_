@@ -27,7 +27,7 @@ export const Modal = () => {
     resolver: yupResolver(schema),
   });
 
-  // foi aqui
+
   const { onSubmitFunctionTech } = useContext(TechsContext);
 
   const { isModalOpen, handleOpenModal } = useContext(TechsContext);

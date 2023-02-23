@@ -11,27 +11,22 @@ export function UserProvider({ children }) {
   const token = localStorage.getItem("token");
   const [techs, setTechs] = useState({});
 
-  useEffect(() => {}, [techs]);
-
-  useEffect(() => {
-    async function verifyLogged() {
-      try {
-        if (token !== null) {
-          const response = await api.get("/profile", {
-            headers: { Authorization: `Bearer ${token}` },
-          });
-          const newTechs = response.data.techs;
-          setUser(response.data);
-          return newTechs;
-        } else {
-          navigate("/");
-        }
-      } catch (error) {
-        localStorage.clear();
+  async function verifyLogged() {
+    try {
+      if (token !== null) {
+        const response = await api.get("/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const newTechs = response.data.techs;
+        setUser(response.data);
+        return newTechs;
+      } else {
+        navigate("/");
       }
+    } catch (error) {
+      localStorage.clear();
     }
-    verifyLogged();
-  }, []);
+  }
 
   async function onSubmitFunctionCadastro(data) {
     try {
@@ -62,6 +57,7 @@ export function UserProvider({ children }) {
         onSubmitFunctionLogin,
         onSubmitFunctionCadastro,
         user,
+        verifyLogged,
       }}
     >
       {children}

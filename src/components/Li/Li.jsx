@@ -1,11 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TechsContext } from "../../contexts/techsContext";
 import { UserContext } from "../../contexts/UserContext";
 export const Li = () => {
-  const { user } = useContext(UserContext);
+  const { user, verifyLogged } = useContext(UserContext);
 
   const { handleEditOpenModal } = useContext(TechsContext);
-  // const [thisTech, setThisTech] = useState(user.techs);
+
+  useEffect(() => {
+    const thisFunction = async () => await verifyLogged();
+    thisFunction();
+  }, [user]);
 
   return (
     <>
@@ -19,16 +23,4 @@ export const Li = () => {
         })}
     </>
   );
-
-  // return teste.forEach((element) => {
-  //   user.techs === undefined
-  //     ? null
-  //     : user.techs.map((tech) => {
-  //         return (
-  //           <li>
-  //             <p>{tech.title}</p> <span>{tech.status}</span>
-  //           </li>
-  //         );
-  //       });
-  // );
 };
